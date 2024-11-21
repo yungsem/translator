@@ -38,7 +38,10 @@ type Result struct {
 // Translate returns a greeting for the given name
 func (a *App) Translate(chinese string) *Result {
 	fmt.Println(chinese)
-	english := doTranslate(a.client, chinese, "zh", "en")
+	english, err := translateByDeepL(chinese, "zh", "en")
+	if err != nil {
+		fmt.Println(err)
+	}
 	tw := convertTW(chinese)
 	return &Result{
 		English:            english,

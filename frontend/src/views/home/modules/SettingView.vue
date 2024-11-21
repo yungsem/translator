@@ -52,6 +52,7 @@ const model : FormModel = reactive({
 
 // 保存
 const handleSubmit = () => {
+  console.log(2)
   i18n.global.locale.value = model.lang as 'zh-CN' | 'en-US';
   localStorage.setItem('lang', model.lang)
   localStorage.setItem('translateType', model.translateType)
@@ -72,18 +73,18 @@ const handleSubmit = () => {
             <n-radio key="deepl" value="deepl">
               {{ $t("DEEPL_TRANSLATE") }}
             </n-radio>
-            <n-radio key="openai" value="openai">
+            <!-- <n-radio key="openai" value="openai">
               {{ $t("OPEN_AI_TRANSLATE") }}
-            </n-radio>
+            </n-radio> -->
             <!-- <n-radio key="microsoft" value="microsoft">
               {{ $t("MICROSOFT_TRANSLATE")}}
             </n-radio> -->
           </n-space>
         </n-radio-group>
       </n-form-item>
-      <n-form-item class="ml-8px w-320px" path="translateApiKey" label="API KEY">
+      <!-- <n-form-item class="ml-8px w-320px" path="translateApiKey" label="API KEY">
         <n-input v-model:value="model.translateApiKey" type="text" placeholder="API KEY" />
-      </n-form-item>
+      </n-form-item> -->
     </n-form>
     <n-flex class="ml-8px mt-8px w-320px" justify="end">
       <n-button type="primary" class="w-80px" @click="handleSubmit">

@@ -13,9 +13,6 @@ import (
 var assets embed.FS
 
 func main() {
-	// 启动 deeplx 进程
-	go startDeeplx()
-
 	client := resty.New()
 
 	// Create an instance of the app structure
